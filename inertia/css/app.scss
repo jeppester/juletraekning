@@ -1,0 +1,20 @@
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utils {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@import '~/fonts/inter';
+
+:root,
+body,
+#app {
+  height: 100%;
+}
+
+::selection {
+  @apply text-primary-300-contrast bg-primary-300;
+}
