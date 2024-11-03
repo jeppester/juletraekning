@@ -12,7 +12,7 @@ const loggerConfig = defineConfig({
   loggers: {
     app: {
       enabled: true,
-      name: 'Project Name Human',
+      name: 'Juletrækning',
       level: env.get('LOG_LEVEL', 'info'),
       transport: {
         targets: targets()

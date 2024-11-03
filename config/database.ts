@@ -21,7 +21,7 @@ export const databaseConfig = {
       port: Number.parseInt(url.port),
       user: url.username,
       password: url.password,
-      database: `project_name_snake_development`,
+      database: `juletrækning_development`,
     }
   },
   test: (): PG.ClientConfig => {
@@ -31,7 +31,7 @@ export const databaseConfig = {
       port: Number.parseInt(url.port),
       user: url.username,
       password: url.password,
-      database: `project_name_snake_test`,
+      database: `juletrækning_test`,
     }
   },
 }

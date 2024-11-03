@@ -6,7 +6,7 @@ export default function UsersIndex() {
     <MainLayout>
       <Head title="Home" />
       <div className="container mx-auto">
-        <h1 className="text-xl mt-10">Project Name Human</h1>
+        <h1 className="text-xl mt-10">Juletrækning</h1>
       </div>
     </MainLayout>
   )
