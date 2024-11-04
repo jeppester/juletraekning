@@ -11,16 +11,38 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
 
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
-export interface Users {
-  admin: Generated<boolean>;
+export interface Draws {
   createdAt: Timestamp;
-  email: string;
   id: Generated<number>;
   name: string;
-  password: string;
+  pin: string;
   updatedAt: Timestamp;
 }
 
+export interface Participants {
+  drawId: number;
+  id: Generated<number>;
+  name: string;
+  pin: string;
+}
+
+export interface Rules {
+  drawId: number;
+  id: Generated<number>;
+  participantId: number;
+  targetId: number;
+}
+
+export interface Tickets {
+  drawId: number;
+  drawnParticipantId: number;
+  id: Generated<number>;
+  participantId: number;
+}
+
 export interface DB {
-  users: Users;
+  draws: Draws;
+  participants: Participants;
+  rules: Rules;
+  tickets: Tickets;
 }

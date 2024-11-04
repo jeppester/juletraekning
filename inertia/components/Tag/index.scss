@@ -1,0 +1,17 @@
+.Tag {
+  @apply text-sm rounded-md px-3 py-1 w-max;
+  @apply bg-neutral-200;
+
+  &--closable {
+    @apply relative;
+    @apply pr-7;
+  }
+
+  &__close {
+    @apply p-2 absolute right-0 top-0 cursor-pointer;
+
+    svg {
+      @apply w-3 h-3;
+    }
+  }
+}

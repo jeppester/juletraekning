@@ -3,8 +3,10 @@ import { ChangeEvent, FormEvent } from 'react'
 import { useForm } from '@inertiajs/react'
 import MainLayout from '~/layouts/main'
 import UserForm from '~/components/UserForm'
+import { InferPageProps } from '@adonisjs/inertia/types'
+import DrawsController from '#controllers/draws_controller'
 
-export default function UsersCreate() {
+export default function UsersCreate({}: InferPageProps<DrawsController, 'create'>) {
   const { data, setData, post, processing, errors } = useForm({
     name: '',
     email: '',

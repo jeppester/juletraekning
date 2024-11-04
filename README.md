@@ -160,7 +160,6 @@ Otherwise the following changes where made:
   - Test server port changed to not conflict with development server
   - Automatically run pending migrations
   - Code coverage has been set up (Use `--coverage-text` flag when running tests)
-- Authentication implemented
 - Landing page and simple user management implemented
 
 ### Third party services

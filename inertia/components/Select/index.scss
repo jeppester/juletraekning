@@ -1,0 +1,71 @@
+.Select {
+  @apply w-60;
+
+  &__control {
+    @apply border
+      border-transparent
+      bg-secondary-800
+      text-sm
+      text-white
+      leading-4
+      focus:ring-1
+      focus:outline-none
+      shadow-inner
+      rounded-md
+      pl-5
+      pr-3;
+
+    &--focused {
+      @apply ring-primary-900 border-primary-900;
+    }
+
+    &--disabled {
+      @apply text-primary-400;
+    }
+
+    &--multi:is(&--filled) {
+      @apply pl-1;
+    }
+  }
+
+  &__input {
+    @apply py-2;
+  }
+
+  &__indicator {
+    @apply h-5 w-5;
+  }
+
+  &__menu {
+    @apply border
+      bg-secondary-800
+      leading-4
+      focus:ring-1
+      focus:outline-none
+      shadow-2xl
+      text-white
+      mt-1
+      border-transparent
+      rounded-md
+      py-2
+      px-2
+      w-60;
+  }
+
+  &__option {
+    @apply px-5 py-2 rounded-md;
+    @apply text-sm #{!important};
+
+    &--focused {
+      @apply bg-primary-600 text-primary-600-contrast;
+    }
+
+    &--selected {
+      @apply bg-primary-600 text-primary-600-contrast;
+    }
+  }
+
+  &__multi-value {
+    @apply text-sm rounded-md px-2 py-1 my-[0.175rem] mr-1 w-max bg-primary-600 text-primary-600-contrast;
+  }
+}
