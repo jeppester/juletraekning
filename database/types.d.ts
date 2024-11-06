@@ -24,6 +24,7 @@ export interface Participants {
   id: Generated<number>;
   name: string;
   pin: string;
+  visits: Generated<number>;
 }
 
 export interface Rules {

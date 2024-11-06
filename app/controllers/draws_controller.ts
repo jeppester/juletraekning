@@ -54,7 +54,12 @@ export default class DrawsController {
         jsonArrayFrom(
           eb
             .selectFrom('participants')
-            .select(['participants.name', 'participants.id', 'participants.pin'])
+            .select([
+              'participants.name',
+              'participants.visits',
+              'participants.id',
+              'participants.pin',
+            ])
             .select((eb) =>
               jsonArrayFrom(
                 eb

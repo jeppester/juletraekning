@@ -10,7 +10,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
   const { draw, siteUrl } = props
 
   const partitipantLink = ({ id, pin }: { id: number; pin: string }) =>
-    `${siteUrl}/ticket/${id}${pin}`
+    `${siteUrl}/tickets/${id}${pin}`
 
   return (
     <MainLayout>
@@ -97,7 +97,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
                   ? `Måtte ikke vælge: ${participant.exclude.map((e) => e.name).join(', ')}`
                   : `Måtte vælge alle`}
                 {' - '}
-                Set 0 gange
+                Besøgt {participant.visits} gang{participant.visits !== 1 && 'e'}
               </p>
             </div>
           ))}
