@@ -10,5 +10,20 @@ services:
     volumes:
       - pg15:/var/lib/postgresql/data
 
+  app:
+    profiles: [production]
+    image: production
+    build: .
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATABASE_URL: postgres://postgres@postgres/postgres
+      APP_KEY: 'fesajopfasjfopesajfopeasojfopea'
+    ports:
+      - 127.0.0.1:3000:3000
+    depends_on:
+      postgres:
+        condition: service_started
+
 volumes:
   pg15:
