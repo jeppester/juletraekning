@@ -19,9 +19,6 @@
       'inertia/app/app.tsx',
       `inertia/pages/${page.component}.tsx`,
     ])
-    @if(process.env.NODE_ENV === 'test')
-      @vite(['inertia/all.ts'])
-    @end
   </head>
   <body>
     @inertia()
