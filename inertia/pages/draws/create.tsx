@@ -85,9 +85,9 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
 
         <form onSubmit={createParticipant} className="mt-5">
           <label className="block">
-            <p className="text-xl uppercase text-neutral-400 text-center drop-shadow-md">
+            <h2 className="text-xl uppercase text-neutral-400 text-center drop-shadow-md">
               Opret deltagere
-            </p>
+            </h2>
             <div className="flex mt-2">
               <Input
                 onInput={({ currentTarget: { value } }) => setParticipantName(value)}
@@ -106,9 +106,9 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
         <form className="w-full" onSubmit={handleSubmit}>
           {data.participants.length > 0 && (
             <>
-              <p className="mt-8 text-xl uppercase text-neutral-400 text-center drop-shadow-md">
+              <h2 className="mt-8 text-xl uppercase text-neutral-400 text-center drop-shadow-md">
                 Deltagere
-              </p>
+              </h2>
 
               <div className="mt-2 grid md:grid-cols-2 w-full gap-2">
                 {data.participants.map((participant) => (
@@ -179,7 +179,7 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
           </label>
 
           {Object.values(exceptions).map((exception) => (
-            <Alert variant="danger" className="mt-8 text-base whitespace-pre-wrap">
+            <Alert key={exception} variant="danger" className="mt-8 text-base whitespace-pre-wrap">
               {exception}
             </Alert>
           ))}
