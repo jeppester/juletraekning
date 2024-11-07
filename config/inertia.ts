@@ -1,3 +1,4 @@
+import env from '#start/env'
 import { defineConfig } from '@adonisjs/inertia'
 import type { InferSharedProps } from '@adonisjs/inertia/types'
 
@@ -11,7 +12,7 @@ const inertiaConfig = defineConfig({
    * Data that should be shared with all rendered pages
    */
   sharedData: {
-    siteUrl: ({ request }) => `${request.protocol()}://${request.host()}`,
+    siteUrl: ({ request }) => env.get('SITE_URL', `${request.protocol()}://${request.host()}`),
     errors: (ctx) => {
       const errors = ctx.session?.flashMessages.get('errors') ?? {}
       return Object.keys(errors).reduce(

@@ -17,6 +17,7 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3000
+      SITE_URL: ${SITE_URL}
       DATABASE_URL: postgres://postgres@postgres/postgres
       APP_KEY: 'fesajopfasjfopesajfopeasojfopea'
     ports:
