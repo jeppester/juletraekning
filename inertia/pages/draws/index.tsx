@@ -1,7 +1,4 @@
-import { Head } from '@inertiajs/react'
-import Button from '~/components/Button'
-import Field from '~/components/Field'
-import Input from '~/components/Input'
+import { Head, Link } from '@inertiajs/react'
 import MainLayout from '~/layouts/main'
 
 export default function UsersIndex() {
@@ -13,12 +10,12 @@ export default function UsersIndex() {
           Opret din helt egen juletrækning i dag!
         </h1>
 
-        <a
+        <Link
           href="/create"
           className="rounded-xl mt-10 px-20 py-6 block bg-primary-500 text-neutral-900 text-2xl font-extrabold uppercase shadow-lg"
         >
           <span className="drop-shadow-sm">Start her!</span>
-        </a>
+        </Link>
       </div>
     </MainLayout>
   )
