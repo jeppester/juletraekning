@@ -4,23 +4,23 @@
   &__control {
     @apply border
       border-transparent
-      bg-secondary-800
+      bg-primary-700
       text-sm
       text-white
       leading-4
-      focus:ring-1
-      focus:outline-none
+      ring-offset-1
+      ring-offset-primary-700
       shadow-inner
       rounded-md
       pl-5
       pr-3;
 
     &--focused {
-      @apply ring-primary-900 border-primary-900;
+      @apply ring-primary-500 ring-4;
     }
 
     &--disabled {
-      @apply text-primary-400;
+      @apply text-secondary-400;
     }
 
     &--multi:is(&--filled) {
@@ -38,13 +38,14 @@
 
   &__menu {
     @apply border
-      bg-secondary-800
+      bg-primary-700
       leading-4
-      focus:ring-1
+      focus-visible:ring-4
+      ring-primary-500
       focus:outline-none
       shadow-2xl
       text-white
-      mt-1
+      mt-2
       border-transparent
       rounded-md
       py-2
@@ -57,15 +58,15 @@
     @apply text-sm #{!important};
 
     &--focused {
-      @apply bg-primary-600 text-primary-600-contrast;
+      @apply bg-secondary-600 text-secondary-600-contrast;
     }
 
     &--selected {
-      @apply bg-primary-600 text-primary-600-contrast;
+      @apply bg-secondary-600 text-secondary-600-contrast;
     }
   }
 
   &__multi-value {
-    @apply text-sm rounded-md px-2 py-1 my-[0.175rem] mr-1 w-max bg-primary-600 text-primary-600-contrast;
+    @apply text-sm rounded-md px-2 py-1 my-[0.175rem] mr-1 w-max bg-secondary-600 text-secondary-600-contrast;
   }
 }

@@ -10,6 +10,7 @@ import MainLayout from '~/layouts/main'
 import { InferPageProps } from '@adonisjs/inertia/types'
 import DrawsController from '#controllers/draws_controller'
 import Alert from '~/components/Alert'
+import Card from '~/components/Card'
 
 let id = 0
 const getId = () => ++id
@@ -78,7 +79,7 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
   return (
     <MainLayout>
       <Head title="Ny juletrækning" />
-      <div className="mx-auto flex flex-col items-center max-w-2xl bg-secondary-600 px-10 py-8 rounded-3xl shadow-2xl">
+      <Card>
         <h1 className="text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
           Ny juletrækning
         </h1>
@@ -92,11 +93,17 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
               <Input
                 onInput={({ currentTarget: { value } }) => setParticipantName(value)}
                 size="md"
+                variant="default"
                 value={participantName}
-                className="rounded-l-md bg-secondary-800 text-secondary-800-contrast"
+                className="rounded-l-md"
                 placeholder="Skriv deltagerens navn"
               />
-              <Button variant="primary" size="md" className="rounded-r-md -ml-px text-primary-900">
+              <Button
+                disabled={participantName.length === 0}
+                variant="primary"
+                size="md"
+                className="rounded-r-md"
+              >
                 Opret deltager
               </Button>
             </div>
@@ -114,9 +121,9 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
                 {data.participants.map((participant) => (
                   <div
                     key={participant.id}
-                    className="relative px-5 pt-2 pb-4 bg-secondary-700 shadow-inner rounded-md"
+                    className="relative px-5 pt-3 pb-5 bg-primary-800 shadow-inner border-4 border-primary-500 rounded-md"
                   >
-                    <h2 className="text-lg text font-semibold text-neutral-400 text-center drop-shadow-md">
+                    <h2 className="text-2xl text text-neutral-400 drop-shadow-md">
                       {participant.name}
                     </h2>
 
@@ -130,13 +137,13 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
                       <XMarkIcon className="w-6 h-6" />
                     </ButtonClear>
 
-                    <div className="flex w-full mt-2 items-center">
-                      <Tag className="flex whitespace-nowrap py-2 items-center gap-1 rounded-none rounded-l shadow-inner">
+                    <div className="flex items-stretch w-full mt-4">
+                      <Tag className="bg-primary-600 text-primary-600-contrast flex whitespace-nowrap py-2 items-center gap-1 rounded-none rounded-l shadow-inner">
                         Træk ikke
                       </Tag>
 
                       <Select
-                        placeholder="Vælg deltagere"
+                        placeholder="Vælg..."
                         classNames={{
                           container: 'grow',
                           control: 'rounded-none rounded-r',
@@ -172,9 +179,11 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
             <Input
               onInput={({ currentTarget: { value } }) => setData({ ...data, name: value })}
               size="md"
+              variant="default"
               value={data.name}
-              className="mt-4 w-full py-5 text-3xl text-center rounded-l-md bg-secondary-800 text-secondary-800-contrast"
+              className="mt-4 w-full py-5 text-3xl text-center"
               placeholder="..."
+              onFocus={({ currentTarget }) => currentTarget.select()}
             />
           </label>
 
@@ -184,11 +193,11 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
             </Alert>
           ))}
 
-          <button className="w-full rounded-xl mt-10 px-20 py-6 block bg-primary-500 text-primary-900 text-2xl font-bold uppercase shadow-lg">
-            <span className="drop-shadow-[1px_1px_rgba(256,256,256,0.4)]">Opret juletrækning</span>
+          <button className="w-full rounded-xl mt-10 px-20 py-6 block bg-primary-500 text-neutral-100 text-2xl font-bold uppercase shadow-lg">
+            <span className="drop-shadow-[0px_1px_2px_rgba(0,0,0,0.4)]">Opret juletrækning</span>
           </button>
         </form>
-      </div>
+      </Card>
     </MainLayout>
   )
 }

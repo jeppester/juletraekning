@@ -19,7 +19,7 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
   const [showResult, setShowResult] = useState(false)
 
   return (
-    <MainLayout>
+    <>
       <Head title="Se hvem du har trukket nu!" />
       <p className="text-sm w-full text-center fixed bottom-2 text-opacity-80 text-white">
         Du skal scrolle ned
@@ -101,11 +101,11 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
             !!!!
           </h1>
         ) : (
-          <Button onClick={() => setShowResult(true)} variant="primary" size="lg">
+          <Button onClick={() => setShowResult(true)} variant="warning" size="lg">
             Se resultatet
           </Button>
         )}
       </div>
-    </MainLayout>
+    </>
   )
 }

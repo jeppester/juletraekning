@@ -4,6 +4,7 @@ import { InferPageProps } from '@adonisjs/inertia/types'
 import DrawsController from '#controllers/draws_controller'
 import Button from '~/components/Button'
 import Input from '~/components/Input'
+import Card from '~/components/Card'
 
 export default function DrawCreate(props: InferPageProps<DrawsController, 'show'>) {
   const page = usePage()
@@ -15,11 +16,11 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
   return (
     <MainLayout>
       <Head title="Ny juletrækning" />
-      <div className="mx-auto text-center flex flex-col items-center max-w-2xl bg-secondary-600 text-secondary-600-contrast px-10 py-8 rounded-3xl shadow-2xl">
+      <Card>
         <h1 className="text-2xl font-bold text-neutral-400 drop-shadow-md">
           Teknisserne har arbejdet på højtryk...
         </h1>
-        <h1 className="text-6xl animate-pulse font-bold text-neutral-400 drop-shadow-md">
+        <h1 className="text-6xl text-center animate-pulse font-bold text-neutral-400 drop-shadow-md">
           Og nu har vi resultatet!
         </h1>
 
@@ -28,7 +29,8 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
         </h2>
         <div className="flex mt-3 w-full">
           <Input
-            className="bg-secondary-800 grow text-secondary-800-contrast rounded-l-md"
+            className="grow shrink rounded-l-md"
+            variant="default"
             type="url"
             size="lg"
             readOnly
@@ -50,7 +52,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
         <h2 className="text-xl mt-8 uppercase text-neutral-400 drop-shadow-md">
           Magiske julelinks
         </h2>
-        <p className="">
+        <p className="text-center">
           Glæd dig til at overraske hver deltager med et helt personlig julelink!
           <br />
           <u>
@@ -58,12 +60,12 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
           </u>
         </p>
 
-        <p className="italic mt-4">
+        <p className="text-center italic mt-4">
           Hvis du julens magi bevare vil <br />
           Kun deltageren linket skal sendes til... <br />
         </p>
 
-        <p className="mt-4">
+        <p className="text-center mt-4">
           (det betyder at du kun skal sende de rigtige links til de rigtige modtagere og at du ikke
           må smugkigge, dit lille nissesvin)
         </p>
@@ -77,7 +79,8 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
 
               <div className="flex mt-1">
                 <Input
-                  className="bg-secondary-800 grow text-secondary-800-contrast rounded-l-md"
+                  className="rounded-l-md grow shrink"
+                  variant="default"
                   type="url"
                   size="lg"
                   readOnly
@@ -92,7 +95,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
                   Kopiér
                 </Button>
               </div>
-              <p className="italic mt-0.5 text-sm">
+              <p className="text-center italic mt-0.5 text-sm">
                 {participant.exclude.length > 0
                   ? `Måtte ikke vælge: ${participant.exclude.map((e) => e.name).join(', ')}`
                   : `Måtte vælge alle`}
@@ -102,7 +105,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
             </div>
           ))}
         </div>
-      </div>
+      </Card>
     </MainLayout>
   )
 }

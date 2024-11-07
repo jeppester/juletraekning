@@ -2,10 +2,7 @@ import { PropsWithChildren } from 'react'
 
 export default function MainLayout({ children }: PropsWithChildren) {
   return (
-    <main className="w-full h-full py-20">
-      {/* <Nav /> */}
-      {/* <%= render "shared/nav" if controller_name != "sessions" %> */}
-      {/* <%= render "shared/flash_messages", container_class: "container mx-auto my-4" %> */}
+    <main className="w-full min-h-full px-4 py-20 flex flex-col justify-around items-center">
       {children}
     </main>
   )

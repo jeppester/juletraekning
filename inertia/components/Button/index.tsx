@@ -23,7 +23,6 @@ function classes(props: ButtonProps, className?: string) {
     {
       [`Button--${size}`]: size,
       [`Button--${variant}`]: variant,
-      ['Button--disabled']: props.disabled,
     },
     className
   )

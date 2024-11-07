@@ -1,5 +1,5 @@
 .Input {
-  @apply border border-transparent text-base leading-4 focus:ring-1 focus:outline-none shadow-sm;
+  @apply focus:z-10 border-4 text-base leading-4 ring-offset-1 focus:ring-4 focus-visible:ring-primary-600 focus:outline-none;
 
   // Round if no rounding class is specified
   &:not([class*='rounded']) {
@@ -29,7 +29,7 @@
 
   // Variants
   &--default {
-    @apply border-neutral-300 focus:ring-primary-400 focus:border-primary-400;
+    @apply ring-offset-primary-800 bg-primary-700 border-primary-800 text-primary-700-contrast;
   }
 
   &--error {

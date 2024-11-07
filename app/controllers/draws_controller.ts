@@ -19,8 +19,20 @@ export default class DrawsController {
    */
   async store({ request, response, session }: HttpContext) {
     const data = await request.validateUsing(createDrawValidator)
-    const drawResult = new DrawService(data.participants).perform()
 
+    const numberErrors = [
+      'Puljen var desværre helt tom, prøv at tilføje nogle deltagere',
+      'Der skal være mindst tre deltagere.\nHvis du bare gerne vil købe en gave til dig selv, så må du gerne for os <3',
+      'Det bliver lidt for forudsigeligt med kun to deltagere, tilføj venligst mindst én deltager mere',
+    ]
+    if (numberErrors[data.participants.length]) {
+      session.flashErrors({
+        DrawError: numberErrors[data.participants.length],
+      })
+      return response.redirect('back', true)
+    }
+
+    const drawResult = new DrawService(data.participants).perform()
     if (!drawResult.finalTickets) {
       session.flashErrors({
         DrawError: `Øv! der er nisser i teknikken!\nVi prøvede ${drawResult.attempts} gange, men fik ikke et gyldigt resultat...\n\nDu må gerne prøve igen, men overvej lige om der skal laves om på hvem der kan trække hvem`,

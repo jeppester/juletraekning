@@ -2,10 +2,10 @@
   @apply text-sm rounded-md px-4 py-4;
 
   &--primary {
-    @apply text-primary-800 bg-primary-50;
+    @apply text-primary-600-contrast bg-primary-600;
 
     .Alert__close {
-      @apply text-primary-500;
+      @apply text-primary-600;
 
       &:hover {
         @apply text-primary-700;
@@ -14,10 +14,10 @@
   }
 
   &--neutral {
-    @apply text-neutral-800 bg-neutral-50;
+    @apply text-neutral-600-contrast bg-neutral-600;
 
     .Alert__close {
-      @apply text-neutral-500;
+      @apply text-neutral-600;
 
       &:hover {
         @apply text-neutral-700;
@@ -26,10 +26,10 @@
   }
 
   &--success {
-    @apply text-success-800 bg-success-50;
+    @apply text-success-600-contrast bg-success-600;
 
     .Alert__close {
-      @apply text-success-500;
+      @apply text-success-600;
 
       &:hover {
         @apply text-success-700;
@@ -38,10 +38,10 @@
   }
 
   &--danger {
-    @apply text-danger-800 bg-danger-50;
+    @apply text-danger-600-contrast bg-danger-600;
 
     .Alert__close {
-      @apply text-danger-500;
+      @apply text-danger-600;
 
       &:hover {
         @apply text-danger-700;
@@ -50,10 +50,10 @@
   }
 
   &--warning {
-    @apply text-warning-800 bg-warning-50;
+    @apply text-warning-600-contrast bg-warning-600;
 
     .Alert__close {
-      @apply text-warning-500;
+      @apply text-warning-600;
 
       &:hover {
         @apply text-warning-700;
@@ -62,10 +62,10 @@
   }
 
   &--info {
-    @apply text-info-800 bg-info-50;
+    @apply text-info-600-contrast bg-info-600;
 
     .Alert__close {
-      @apply text-info-500;
+      @apply text-info-600;
 
       &:hover {
         @apply text-info-700;

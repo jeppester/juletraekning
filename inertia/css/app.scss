@@ -12,9 +12,16 @@
 :root,
 body,
 #app {
-  @apply bg-primary-800;
   height: 100%;
 }
+
+body {
+  @apply justify-center bg-fixed bg-cover bg-center;
+
+  background-image: url(~/images/background.jpg);
+}
+
+// overscroll-behavior-y: none;
 
 ::selection {
   @apply text-primary-300-contrast bg-primary-300;
