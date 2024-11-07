@@ -15,7 +15,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
   return (
     <MainLayout>
       <Head title="Ny juletrækning" />
-      <div className="mx-auto text-center flex flex-col items-center max-w-2xl bg-secondary-600 text-secondary-600-contrast my-20 px-10 py-8 rounded-3xl shadow-2xl">
+      <div className="mx-auto text-center flex flex-col items-center max-w-2xl bg-secondary-600 text-secondary-600-contrast px-10 py-8 rounded-3xl shadow-2xl">
         <h1 className="text-2xl font-bold text-neutral-400 drop-shadow-md">
           Teknisserne har arbejdet på højtryk...
         </h1>

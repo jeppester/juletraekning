@@ -1,11 +1,11 @@
 import { Head, Link } from '@inertiajs/react'
 import MainLayout from '~/layouts/main'
 
-export default function UsersIndex() {
+export default function DrawsIndex() {
   return (
     <MainLayout>
       <Head title="Opret din helt egen juletrækning i dag!" />
-      <div className="mx-auto flex flex-col items-center max-w-xl bg-secondary-600 my-20 px-10 py-8 rounded-3xl shadow-2xl">
+      <div className="mx-auto flex flex-col items-center max-w-xl bg-secondary-600 px-10 py-8 rounded-3xl shadow-2xl">
         <h1 className="text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
           Opret din helt egen juletrækning i dag!
         </h1>
