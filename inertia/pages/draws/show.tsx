@@ -32,7 +32,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
             type="url"
             size="lg"
             readOnly
-            value={`${siteUrl}/${page.url}`}
+            value={`${siteUrl}${page.url}`}
           />
           <Button
             className="rounded-r-md"
