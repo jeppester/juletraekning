@@ -13,7 +13,7 @@ export default function DrawsIndex() {
 
         <Link
           href="/create"
-          className="rounded-xl mt-10 px-20 py-6 block bg-primary-500 text-neutral-100 text-2xl font-extrabold uppercase shadow-lg active:shadow-inner"
+          className="rounded-xl text-center mt-10 px-20 py-6 block bg-primary-500 text-neutral-100 text-2xl font-extrabold uppercase shadow-lg active:shadow-inner"
         >
           <span className="drop-shadow-[0px_1px_2px_rgba(0,0,0,0.4)]">Start her!</span>
         </Link>
