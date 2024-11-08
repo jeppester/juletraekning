@@ -15,9 +15,12 @@ body,
   height: 100%;
 }
 
+:root {
+  @apply bg-primary-600;
+}
+
 body {
   @apply justify-center bg-fixed bg-cover bg-center;
-
   background-image: url(~/images/background.jpg);
 }
 

@@ -1,11 +1,14 @@
 import { Head } from '@inertiajs/react'
-import MainLayout from '~/layouts/main'
+import Video from '~/components/Video'
 import { InferPageProps } from '@adonisjs/inertia/types'
 import TicketsController from '#controllers/tickets_controller'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Button from '~/components/Button'
+import backgroundImageUrl from '~/images/background.jpg'
 
 export default function DrawCreate({ ticket }: InferPageProps<TicketsController, 'show'>) {
+  const scrollToRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     document.documentElement.style.scrollSnapType = 'y mandatory'
     document.documentElement.style.backgroundColor = 'rgb(var(--color-neutral-700) / 1)'
@@ -28,7 +31,22 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
         Du skal scrolle ned
       </p>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-neutral-700">
+      <Video
+        className="h-screen z-10 snap-start bg-cover bg-center"
+        onComplete={() => {
+          if (document.body.scrollTop === 0) {
+            scrollToRef.current?.scrollIntoView({ behavior: 'smooth' })
+          }
+        }}
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+        }}
+      />
+
+      <div
+        ref={scrollToRef}
+        className="h-screen flex items-center justify-center snap-start bg-neutral-700"
+      >
         <h1 className="text-6xl animate-pulse text-center font-bold text-neutral-400 drop-shadow-md">
           Tillykke!
         </h1>
@@ -94,7 +112,7 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
 
       <div className="min-h-screen flex items-center justify-center snap-start">
         {showResult ? (
-          <h1 className="w-screen text-[10rem] break-words text-center animate-bounce uppercase font-bold text-neutral-400 drop-shadow-md">
+          <h1 className="w-screen text-[5rem] break-words text-center animate-bounce uppercase font-bold text-neutral-400 drop-shadow-md">
             !!!!
             <br /> {ticket.drawnName.split('').join('. ')}.
             <br />
