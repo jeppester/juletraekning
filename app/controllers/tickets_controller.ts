@@ -14,9 +14,14 @@ export default class DrawsController {
       .selectFrom('participants')
       .where('participants.id', '=', id)
       .where('participants.pin', '=', pin)
+      .innerJoin('draws', 'draws.id', 'participants.drawId')
       .innerJoin('tickets', 'participants.id', 'tickets.participantId')
       .innerJoin('participants as targets', 'targets.id', 'tickets.drawnParticipantId')
-      .select(['participants.name', 'targets.name as drawnName'])
+      .select([
+        'participants.name',
+        'targets.name as drawnParticipantName',
+        'draws.name as drawName',
+      ])
       .executeTakeFirstOrThrow()
 
     // Add visit - if not a bot

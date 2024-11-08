@@ -61,6 +61,7 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
       <Head title="Se hvem du har trukket nu!" />
 
       <Video
+        drawTitle={ticket.drawName}
         className="h-screen z-10 snap-start bg-cover bg-center"
         onComplete={() => {
           if (document.body.scrollTop === 0) {
@@ -132,10 +133,10 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
       >
         {showResult ? (
           <>
-            <h1 className="px-5 text-[3rem] md:text-[5rem] w-full break-words animate-bounce text-center font-bold text-neutral-400 drop-shadow-md">
+            <h1 className="px-5 text-[3rem] md:text-[5rem] xl:text-[8rem] w-full break-words animate-bounce text-center font-bold text-neutral-400 drop-shadow-md">
               !!!
               <br />
-              {ticket.drawnName.split('').join(' ').toUpperCase()}
+              {ticket.drawnParticipantName.split('').join(' ').toUpperCase()}
               <br />
               !!!
             </h1>

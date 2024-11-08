@@ -6,8 +6,9 @@ import cn from 'classnames'
 export default function Video({
   className,
   onComplete,
+  drawTitle,
   ...props
-}: HTMLProps<HTMLDivElement> & { onComplete: () => void }) {
+}: HTMLProps<HTMLDivElement> & { onComplete: () => void; drawTitle: string }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const continueButtonTimeoutRef = useRef<NodeJS.Timeout>()
   const [showContinueButton, setShowContinueButton] = useState(false)
@@ -51,6 +52,11 @@ export default function Video({
         onClick={playPause}
         className="cursor-pointer group absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center"
       >
+        {drawTitle && (
+          <div className="text-center text-[3rem] md:text-[5rem] absolute font-bold text-neutral-400 drop-shadow-md top-20 px-6">
+            {drawTitle}
+          </div>
+        )}
         {!isPlaying && (
           <img
             src={playButtonUrl}
