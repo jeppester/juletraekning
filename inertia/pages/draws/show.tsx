@@ -16,20 +16,20 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
   return (
     <MainLayout>
       <Head title="Ny juletrækning" />
-      <Card>
-        <h1 className="text-2xl font-bold text-neutral-400 drop-shadow-md">
+      <Card className="text-center">
+        <h1 className="text-lg md:text-2xl font-bold text-neutral-400 drop-shadow-md">
           Teknisserne har arbejdet på højtryk...
         </h1>
-        <h1 className="text-6xl text-center animate-pulse font-bold text-neutral-400 drop-shadow-md">
+        <h1 className="text-4xl max-md:mt-4 md:text-6xl text-center animate-pulse font-bold text-neutral-400 drop-shadow-md">
           Og nu har vi resultatet!
         </h1>
 
         <h2 className="text-xl mt-8 uppercase text-neutral-400 drop-shadow-md">
           Find altid din lodtrækning her:
         </h2>
-        <div className="flex mt-3 w-full">
+        <div className="flex max-md:flex-col mt-3">
           <Input
-            className="grow shrink rounded-l-md"
+            className="grow shrink max-md:rounded-t-md md:rounded-l-md"
             variant="default"
             type="url"
             size="lg"
@@ -37,7 +37,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
             value={`${siteUrl}${page.url}`}
           />
           <Button
-            className="rounded-r-md"
+            className="max-md:rounded-b-md md:rounded-r-md"
             size="lg"
             variant="primary"
             onClick={() => navigator.clipboard.writeText(`${siteUrl}/${page.url}`)}
@@ -70,16 +70,16 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
           må smugkigge, dit lille nissesvin)
         </p>
 
-        <div className="mt-8 w-full space-y-4">
+        <div className="mt-8 space-y-4">
           {draw.participants.map((participant) => (
             <div key={participant.id}>
               <h2 className="text-lg text font-semibold text-neutral-400 text-center drop-shadow-md">
                 {participant.name}
               </h2>
 
-              <div className="flex mt-1">
+              <div className="flex max-md:flex-col mt-1">
                 <Input
-                  className="rounded-l-md grow shrink"
+                  className="max-md:rounded-t-md md:rounded-l-md grow shrink"
                   variant="default"
                   type="url"
                   size="lg"
@@ -89,7 +89,7 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
                 <Button
                   variant="primary"
                   size="lg"
-                  className="rounded-r-md"
+                  className="max-md:rounded-b-md md:rounded-r-md"
                   onClick={() => navigator.clipboard.writeText(partitipantLink(participant))}
                 >
                   Kopiér

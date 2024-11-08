@@ -80,7 +80,7 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
     <MainLayout>
       <Head title="Ny juletrækning" />
       <Card>
-        <h1 className="text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
+        <h1 className="text-3xl md:text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
           Ny juletrækning
         </h1>
 
@@ -89,20 +89,20 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
             <h2 className="text-xl uppercase text-neutral-400 text-center drop-shadow-md">
               Opret deltagere
             </h2>
-            <div className="flex mt-2">
+            <div className="flex flex-col md:flex-row mt-2">
               <Input
                 onInput={({ currentTarget: { value } }) => setParticipantName(value)}
-                size="md"
+                size="lg"
                 variant="default"
                 value={participantName}
-                className="rounded-l-md"
+                className="max-md:rounded-t grow md:rounded-l-md"
                 placeholder="Skriv deltagerens navn"
               />
               <Button
                 disabled={participantName.length === 0}
                 variant="primary"
-                size="md"
-                className="rounded-r-md"
+                size="lg"
+                className="max-md:rounded-b md:rounded-r-md"
               >
                 Opret deltager
               </Button>
@@ -110,14 +110,14 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
           </label>
         </form>
 
-        <form className="w-full" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           {data.participants.length > 0 && (
             <>
               <h2 className="mt-8 text-xl uppercase text-neutral-400 text-center drop-shadow-md">
                 Deltagere
               </h2>
 
-              <div className="mt-2 grid md:grid-cols-2 w-full gap-2">
+              <div className="mt-2 grid md:grid-cols-2 gap-2">
                 {data.participants.map((participant) => (
                   <div
                     key={participant.id}
@@ -137,16 +137,16 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
                       <XMarkIcon className="w-6 h-6" />
                     </ButtonClear>
 
-                    <div className="flex items-stretch w-full mt-4">
-                      <Tag className="bg-primary-600 text-primary-600-contrast flex whitespace-nowrap py-2 items-center gap-1 rounded-none rounded-l shadow-inner">
+                    <div className="flex items-stretch flex-col md:flex-row mt-4">
+                      <Tag className="bg-primary-600 max-md:w-full text-primary-600-contrast flex whitespace-nowrap py-2 items-center gap-1 rounded-none max-md:rounded-t md:rounded-l shadow-inner">
                         Træk ikke
                       </Tag>
 
                       <Select
                         placeholder="Vælg..."
                         classNames={{
-                          container: 'grow',
-                          control: 'rounded-none rounded-r',
+                          container: 'grow w-auto',
+                          control: 'rounded-none max-md:rounded-b md:rounded-r',
                         }}
                         isMulti
                         onChange={(newValue) =>
@@ -181,7 +181,7 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
               size="md"
               variant="default"
               value={data.name}
-              className="mt-4 w-full py-5 text-3xl text-center"
+              className="mt-4 w-full py-5 max-md:text-xl md:text-3xl text-center"
               placeholder="..."
               onFocus={({ currentTarget }) => currentTarget.select()}
             />
@@ -193,7 +193,7 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
             </Alert>
           ))}
 
-          <button className="w-full rounded-xl mt-10 px-20 py-6 block bg-primary-500 text-neutral-100 text-2xl font-bold uppercase shadow-lg">
+          <button className="w-full rounded-xl mt-10 px-2 py-6 block bg-primary-500 text-neutral-100 md:text-2xl font-bold uppercase shadow-lg">
             <span className="drop-shadow-[0px_1px_2px_rgba(0,0,0,0.4)]">Opret juletrækning</span>
           </button>
         </form>

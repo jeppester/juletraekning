@@ -16,15 +16,9 @@ body,
 }
 
 :root {
-  @apply bg-primary-600;
-}
-
-body {
-  @apply justify-center bg-fixed bg-cover bg-center;
   background-image: url(~/images/background.jpg);
+  @apply bg-fixed bg-cover bg-center;
 }
-
-// overscroll-behavior-y: none;
 
 ::selection {
   @apply text-primary-300-contrast bg-primary-300;

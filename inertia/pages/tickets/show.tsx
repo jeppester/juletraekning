@@ -2,16 +2,47 @@ import { Head } from '@inertiajs/react'
 import Video from '~/components/Video'
 import { InferPageProps } from '@adonisjs/inertia/types'
 import TicketsController from '#controllers/tickets_controller'
-import { useEffect, useRef, useState } from 'react'
+import { ForwardedRef, forwardRef, HTMLProps, useEffect, useRef, useState } from 'react'
 import Button from '~/components/Button'
 import backgroundImageUrl from '~/images/background.jpg'
+import cn from 'classnames'
+
+const PageText = forwardRef(
+  (
+    {
+      className,
+      children,
+      textClassName,
+      ...props
+    }: HTMLProps<HTMLDivElement> & { textClassName?: string },
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={cn('h-screen flex items-center justify-center snap-start', className)}
+        {...props}
+      >
+        <h1
+          className={cn(
+            'text-6xl w-full break-words shrink text-center font-bold text-neutral-400 drop-shadow-md',
+            textClassName
+          )}
+        >
+          {children}
+        </h1>
+      </div>
+    )
+  }
+)
 
 export default function DrawCreate({ ticket }: InferPageProps<TicketsController, 'show'>) {
   const scrollToRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     document.documentElement.style.scrollSnapType = 'y mandatory'
-    document.documentElement.style.backgroundColor = 'rgb(var(--color-neutral-700) / 1)'
+    document.documentElement.style.backgroundImage =
+      'linear-gradient(rgb(var(--color-secondary-800) / 1), rgb(var(--color-primary-600) / 1))'
 
     return () => {
       document.documentElement.style.scrollSnapType = ''
@@ -19,17 +50,15 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
     }
   }, [])
 
+  const onTextClick = ({ currentTarget }: { currentTarget: HTMLElement }) => {
+    currentTarget.nextElementSibling?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   const [showResult, setShowResult] = useState(false)
 
   return (
     <>
       <Head title="Se hvem du har trukket nu!" />
-      <p className="text-sm w-full text-center fixed bottom-2 text-opacity-80 text-white">
-        Du skal scrolle ned
-      </p>
-      <p className="text-sm w-full text-center fixed top-2 text-opacity-80 text-white">
-        Du skal scrolle ned
-      </p>
 
       <Video
         className="h-screen z-10 snap-start bg-cover bg-center"
@@ -43,87 +72,78 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
         }}
       />
 
-      <div
+      <PageText
+        onClick={onTextClick}
         ref={scrollToRef}
-        className="h-screen flex items-center justify-center snap-start bg-neutral-700"
+        className="bg-neutral-700"
+        textClassName="animated-pulse"
       >
-        <h1 className="text-6xl animate-pulse text-center font-bold text-neutral-400 drop-shadow-md">
-          Tillykke!
-        </h1>
-      </div>
+        Tillykke!
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-secondary-700">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          Og glædelig jul!
-        </h1>
-      </div>
+      <PageText onClick={onTextClick} className="bg-secondary-700">
+        Og glædelig jul!
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-primary-700">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          "{ticket.name}"
-        </h1>
-      </div>
+      <PageText onClick={onTextClick} className="bg-primary-700">
+        "{ticket.name}"
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-secondary-700">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          Du har trukket...
-        </h1>
-      </div>
+      <PageText onClick={onTextClick} className="bg-secondary-700">
+        Du har trukket...
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-black">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          ...
-          <br />
-          og hold nu fast
-          <br />
-          ...
-        </h1>
-      </div>
+      <PageText onClick={onTextClick} className="bg-black">
+        ...
+        <br />
+        og hold nu fast
+        <br />
+        ...
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          (<br />
-          på gløggen og brunkagerne
-          <br />)
-        </h1>
-      </div>
+      <PageText onClick={onTextClick}>
+        (<br />
+        på gløggen og brunkagerne
+        <br />)
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-secondary-700">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          ...
-          <br />
-          For det bliver vildt!
-          <br />
-          ...
-        </h1>
-      </div>
+      <PageText onClick={onTextClick} className="bg-secondary-700">
+        ...
+        <br />
+        For det bliver vildt!
+        <br />
+        ...
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-primary-700">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          HER KOMMER:
-        </h1>
-      </div>
+      <PageText onClick={onTextClick} className="bg-primary-700">
+        HER KOMMER:
+      </PageText>
 
-      <div className="h-screen flex items-center justify-center snap-start bg-secondary-700">
-        <h1 className="text-6xl text-center font-bold text-neutral-400 drop-shadow-md">
-          (trommehvirvel)
-        </h1>
-      </div>
+      <PageText onClick={onTextClick} className="bg-secondary-700">
+        (trommehvirvel)
+      </PageText>
 
-      <div className="min-h-screen flex items-center justify-center snap-start">
+      <PageText
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+        }}
+        onClick={onTextClick}
+        className="bg-cover bg-center"
+        textClassName={cn('text-[5rem]', showResult ? 'animate-bounce' : '')}
+      >
         {showResult ? (
-          <h1 className="w-screen text-[5rem] break-words text-center animate-bounce uppercase font-bold text-neutral-400 drop-shadow-md">
+          <>
             !!!!
-            <br /> {ticket.drawnName.split('').join('. ')}.
+            <br /> {ticket.drawnName.split('').join('. ').toUpperCase()}.
             <br />
             !!!!
-          </h1>
+          </>
         ) : (
-          <Button onClick={() => setShowResult(true)} variant="warning" size="lg">
+          <Button onClick={() => setShowResult(true)} variant="warning" size="xl">
             Se resultatet
           </Button>
         )}
-      </div>
+      </PageText>
     </>
   )
 }

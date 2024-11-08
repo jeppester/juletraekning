@@ -6,8 +6,8 @@ export default function Card({ className, ...props }: React.HTMLProps<HTMLDivEle
   return (
     <div
       className={cn(
-        'mx-auto flex flex-col items-center max-w-2xl bg-secondary-800 text-secondary-800-contrast border-8 border-secondary-500 px-10 py-8 shadow-2xl',
-        classNames
+        'mx-aut w-full max-w-2xl bg-secondary-800 text-secondary-800-contrast border-8 border-secondary-500 px-10 py-8 shadow-2xl',
+        className
       )}
       {...props}
     />
