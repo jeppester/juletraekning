@@ -7,7 +7,7 @@ export default function DrawsIndex() {
     <MainLayout>
       <Head title="Opret din helt egen juletrækning i dag!" />
       <Card>
-        <h1 className="text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
+        <h1 className="text-4xl md:text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
           Opret din helt egen juletrækning i dag!
         </h1>
 

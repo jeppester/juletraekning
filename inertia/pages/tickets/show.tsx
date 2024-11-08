@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 import Video from '~/components/Video'
 import { InferPageProps } from '@adonisjs/inertia/types'
 import TicketsController from '#controllers/tickets_controller'
@@ -46,7 +46,7 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
 
     return () => {
       document.documentElement.style.scrollSnapType = ''
-      document.documentElement.style.backgroundColor = ''
+      document.documentElement.style.backgroundImage = ''
     }
   }, [])
 
@@ -123,27 +123,32 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
         (trommehvirvel)
       </PageText>
 
-      <PageText
+      <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
         }}
         onClick={onTextClick}
-        className="bg-cover bg-center"
-        textClassName={cn('text-[5rem]', showResult ? 'animate-bounce' : '')}
+        className="bg-cover py-20 relative bg-center min-h-screen flex flex-col items-center justify-center snap-start"
       >
         {showResult ? (
           <>
-            !!!!
-            <br /> {ticket.drawnName.split('').join('. ').toUpperCase()}.
-            <br />
-            !!!!
+            <h1 className="px-5 text-[3rem] md:text-[5rem] w-full break-words animate-bounce text-center font-bold text-neutral-400 drop-shadow-md">
+              !!!
+              <br />
+              {ticket.drawnName.split('').join(' ').toUpperCase()}
+              <br />
+              !!!
+            </h1>
+            <Link href="/" className={Button.cn({ size: 'xl', variant: 'warning' })}>
+              Lav din egen juletrækning!
+            </Link>
           </>
         ) : (
           <Button onClick={() => setShowResult(true)} variant="warning" size="xl">
             Se resultatet
           </Button>
         )}
-      </PageText>
+      </div>
     </>
   )
 }
