@@ -78,7 +78,9 @@ export default function DrawCreate({ exceptions }: InferPageProps<DrawsControlle
 
   return (
     <MainLayout>
-      <Head title="Ny juletrækning" />
+      <Head title="Ny juletrækning">
+        <meta name="description" content="Udfyld formularen for at oprette din egen juletrækning" />
+      </Head>
       <Card>
         <h1 className="text-3xl md:text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
           Ny juletrækning

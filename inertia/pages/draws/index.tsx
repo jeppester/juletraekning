@@ -5,7 +5,10 @@ import MainLayout from '~/layouts/main'
 export default function DrawsIndex() {
   return (
     <MainLayout>
-      <Head title="Opret din helt egen juletrækning i dag!" />
+      <Head title="Velkommen">
+        <meta name="description" content="Opret din egen juletrækning i dag!" />
+      </Head>
+
       <Card>
         <h1 className="text-4xl md:text-5xl font-bold text-neutral-400 text-center drop-shadow-md">
           Opret din helt egen juletrækning i dag!

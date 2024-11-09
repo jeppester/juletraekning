@@ -58,7 +58,9 @@ export default function DrawCreate({ ticket }: InferPageProps<TicketsController,
 
   return (
     <>
-      <Head title="Se hvem du har trukket nu!" />
+      <Head title={`Resultatkupon for ${ticket.drawName}`}>
+        <meta name="description" content="Se hvem du har trukket lige nu!" />
+      </Head>
 
       <Video
         drawTitle={ticket.drawName}

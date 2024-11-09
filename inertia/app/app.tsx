@@ -9,7 +9,7 @@ import { resolvePageComponent } from '@adonisjs/inertia/helpers'
 createInertiaApp({
   progress: { color: '#5468FF' },
 
-  title: (title) => `${title} - Juletrækning`,
+  title: (title) => `${title} - Juletrækning.dk`,
 
   resolve: (name) => {
     return resolvePageComponent(`../pages/${name}.tsx`, import.meta.glob('../pages/**/*.tsx'))

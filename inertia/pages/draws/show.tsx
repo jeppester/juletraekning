@@ -15,7 +15,10 @@ export default function DrawCreate(props: InferPageProps<DrawsController, 'show'
 
   return (
     <MainLayout>
-      <Head title="Ny juletrækning" />
+      <Head title={draw.name}>
+        <meta name="description" content="Få et overblik over din juletrækning lige her" />
+      </Head>
+
       <Card className="text-center">
         <h1 className="text-lg md:text-2xl font-bold text-neutral-400 drop-shadow-md">
           Teknisserne har arbejdet på højtryk...
