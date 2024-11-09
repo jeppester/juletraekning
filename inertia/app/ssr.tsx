@@ -4,6 +4,8 @@ import { createInertiaApp } from '@inertiajs/react'
 export default function render(page: any) {
   return createInertiaApp({
     page,
+    title: (title) => `${title} - Juletrækning.dk`,
+
     render: ReactDOMServer.renderToString,
     resolve: (name) => {
       const pages = import.meta.glob('../pages/**/*.tsx', { eager: true })
