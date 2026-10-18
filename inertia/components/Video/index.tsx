@@ -64,18 +64,14 @@ export default function Video({
             alt="Play button"
           />
         )}
-        {showContinueButton && (
-          <button
-            onClick={(event) => {
-              event.stopPropagation()
-              onComplete()
-            }}
-            className="rounded-full absolute w-32 bg-black border-4 border-light bg-opacity-80 text-light bottom-20 px-6 py-3"
-          >
-            Videre
-          </button>
-        )}
       </div>
+      <p
+        className={cn("block rounded-t-full bg-black left-[50%] translate-y-full translate-x-[-50%] absolute bottom-0 border-2 border-b-0 border-light bg-opacity-80 text-light px-14 pt-3 pb-2", {
+          '!translate-y-0 transition-transform duration-[2000ms] ': showContinueButton,
+        })}
+      >
+        Scroll for at gå videre...
+      </p>
     </div>
   )
 }
